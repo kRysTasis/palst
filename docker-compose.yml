@@ -1,0 +1,21 @@
+version: '3'
+services:
+  api:
+    build: ./api
+    image: palst-drf-image
+    container_name: palst-api
+    ports:
+      - '8000:8000'
+      - '8888:8888'
+    volumes:
+      - ./api/:/usr/src/palst/api/
+    tty: true
+  web:
+    build: ./web
+    image: palst-vue-image
+    container_name: palst-web
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./web/:/usr/src/palst/web/
+    tty: true
